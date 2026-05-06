@@ -7,25 +7,17 @@
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#ffffff",
-  "theme_color": "#1e88e5",
+  "theme_color": "#1565c0",
   "categories": ["finance", "productivity"],
-  "screenshots": [
-    {
-      "src": "icon.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "form_factor": "narrow"
-    }
-  ],
   "icons": [
     {
-      "src": "icon.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
@@ -39,7 +31,7 @@
       "url": "./?tab=lancamentos",
       "icons": [
         {
-          "src": "icon.png",
+          "src": "icon-192.png",
           "sizes": "192x192"
         }
       ]
