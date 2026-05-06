@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Icon</title>
+  <style>
+    body { margin: 0; padding: 20px; background: #f0f0f0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    canvas { border: 1px solid #ccc; background: white; }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="512" height="512"></canvas>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    // Draw circular button with glossy effect
+    function drawIcon() {
+      const size = 512;
+      const center = size / 2;
+      const radius = size * 0.4;
+
+      // Outer black border
+      ctx.fillStyle = '#000000';
+      ctx.beginPath();
+      ctx.arc(center, center, radius + 15, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Gray highlight ring
+      ctx.fillStyle = '#888888';
+      ctx.beginPath();
+      ctx.arc(center, center, radius + 12, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Green gradient (dark to light)
+      const gradient = ctx.createLinearGradient(0, center - radius, 0, center + radius);
+      gradient.addColorStop(0, '#2d5016');
+      gradient.addColorStop(0.5, '#4a8c2a');
+      gradient.addColorStop(1, '#66bb6a');
+
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.arc(center, center, radius, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Glossy shine effect
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+      ctx.beginPath();
+      ctx.arc(center - radius * 0.3, center - radius * 0.3, radius * 0.4, 0, Math.PI * 2);
+      ctx.fill();
+
+      // White briefcase
+      const briefcaseX = center;
+      const briefcaseY = center;
+      const briefcaseWidth = radius * 0.8;
+      const briefcaseHeight = radius * 0.6;
+
+      // Briefcase body
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.rect(briefcaseX - briefcaseWidth / 2, briefcaseY - briefcaseHeight / 2 + 20, briefcaseWidth, briefcaseHeight);
+      ctx.fill();
+
+      // Briefcase handle
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 12;
+      ctx.beginPath();
+      ctx.arc(briefcaseX, briefcaseY - briefcaseHeight / 2 + 20, briefcaseWidth / 2 - 20, Math.PI, 0, false);
+      ctx.stroke();
+
+      // Dollar sign ($)
+      ctx.fillStyle = '#2d5016';
+      ctx.font = 'bold ' + (radius * 0.7) + 'px Arial';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('$', briefcaseX, briefcaseY + 20);
+
+      // Download link
+      canvas.toBlob(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'icon.png';
+        console.log('Icon generated! Download ready.');
+      });
+    }
+
+    drawIcon();
+  </script>
+</body>
+</html>
