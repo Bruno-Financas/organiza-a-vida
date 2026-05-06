@@ -1,4 +1,4 @@
-const CACHE_NAME = "financas-v1";
+const CACHE_NAME = "financas-v2";
 const urlsToCache = [
   "./",
   "./index.html",
@@ -6,7 +6,9 @@ const urlsToCache = [
   "./app.js",
   "./manifest.json",
   "./chart.min.js",
-  "./icon.png"
+  "./icon-192.png",
+  "./icon-512.png",
+  "./icon.svg"
 ];
 
 // ============ INSTALL EVENT ============
