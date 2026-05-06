@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Controle financeiro familiar com método 50-30-20">
+  <meta name="theme-color" content="#1e88e5">
+  <title>Controle Financeiro Familiar</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="chart.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>💰 Controle Financeiro Familiar</h1>
+
+  <div class="casal">
+    <input id="pessoa1" placeholder="Nome 1" maxlength="20">
+    <input id="pessoa2" placeholder="Nome 2" maxlength="20">
+    <button onclick="salvarCasal()">Salvar</button>
+  </div>
+</header>
+
+<nav>
+  <button onclick="mostrarAba('fixas')" class="nav-active">📌 Contas Fixas</button>
+  <button onclick="mostrarAba('lancamentos')">📝 Lançamentos</button>
+  <button onclick="mostrarAba('502020')">📊 50‑30‑20</button>
+</nav>
+
+<main>
+
+  <!-- CONTAS FIXAS -->
+  <section id="fixas" class="aba">
+    <h2>Contas Fixas Mensais</h2>
+    <p class="total-fixas">Total: R$ <span id="totalFixas">0.00</span></p>
+    <button onclick="adicionarContaFixa()" class="btn-primary">➕ Nova conta</button>
+    <ul id="listaFixas"></ul>
+  </section>
+
+  <!-- LANCAMENTOS -->
+  <section id="lancamentos" class="aba oculto">
+    <h2>Lançamento Rápido</h2>
+    <p class="info-texto">Formato: "Descrição Valor [Nome]" (ex: Mercado 50.90 João)</p>
+
+    <input id="textoLancamento" placeholder="Ex: Mercado 50.90 João" autocomplete="off">
+    <input type="date" id="dataLancamento">
+    <button onclick="processarLancamento()" class="btn-primary">Adicionar</button>
+
+    <h3>Movimentos do mês</h3>
+    <div class="filtros">
+      <button onclick="filtrarPorCategoria('Todas')" class="filtro-ativo">Todas</button>
+      <button onclick="filtrarPorCategoria('Receita')">Receita</button>
+      <button onclick="filtrarPorCategoria('Alimentação')">Alimentação</button>
+      <button onclick="filtrarPorCategoria('Despesas Fixas')">Fixas</button>
+      <button onclick="filtrarPorCategoria('Outros')">Outros</button>
+    </div>
+    <ul id="listaLancamentos"></ul>
+  </section>
+
+  <!-- 50-30-20 -->
+  <section id="502020" class="aba oculto">
+    <h2>Método 50‑30‑20</h2>
+    <div class="chart-container">
+      <canvas id="grafico"></canvas>
+    </div>
+
+    <div class="resumo">
+      <div class="resumo-item essencial">
+        <strong>Essencial (50%)</strong>
+        <span id="essencial">R$ 0.00</span>
+      </div>
+      <div class="resumo-item desejos">
+        <strong>Desejos (30%)</strong>
+        <span id="desejos">R$ 0.00</span>
+      </div>
+      <div class="resumo-item investimentos">
+        <strong>Investimentos (20%)</strong>
+        <span id="investimentos">R$ 0.00</span>
+      </div>
+    </div>
+    <p class="total-receita">Receita Total: R$ <span id="totalReceita">0.00</span></p>
+  </section>
+
+</main>
+
+<footer>
+  <p>💾 Dados salvos localmente | 📱 Funciona offline</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
