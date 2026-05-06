@@ -1,0 +1,48 @@
+{
+  "name": "Controle Financeiro Familiar",
+  "short_name": "Finanças",
+  "description": "Aplicativo para controlar gastos em família com método 50-30-20",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#1e88e5",
+  "categories": ["finance", "productivity"],
+  "screenshots": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Novo Lançamento",
+      "short_name": "Lançamento",
+      "description": "Adicionar novo lançamento rápido",
+      "url": "./?tab=lancamentos",
+      "icons": [
+        {
+          "src": "icon.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ]
+}
